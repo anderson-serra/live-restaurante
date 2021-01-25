@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoBogus" Version="2.12.0" />
+    <PackageReference Include="Bogus" Version="32.0.2" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Moq" Version="4.16.0" />
+    <PackageReference Include="Moq.AutoMock" Version="2.3.0" />
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
@@ -14,6 +19,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Restaurante.Api\Restaurante.Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
 
 </Project>

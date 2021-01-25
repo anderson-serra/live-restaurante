@@ -11,6 +11,9 @@ namespace Restaurante.Api.Repository.DataContext.Configuration
         {
             builder.ToTable("Refeicao");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+                   .UseIdentityColumn()
+                   .ValueGeneratedOnAdd();
 
             builder.Property(x => x.NomeRefeicao)
                    .HasColumnType("varchar(250)")
@@ -23,7 +26,7 @@ namespace Restaurante.Api.Repository.DataContext.Configuration
 
             builder.Property(x => x.DataCadastro)
                    .HasColumnType("DateTime")
-                   .HasDefaultValue(DateTime.Now)
+                   .HasDefaultValueSql("GETDATE()")
                    .IsRequired();
         }
     }
