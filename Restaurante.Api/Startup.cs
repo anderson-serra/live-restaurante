@@ -28,6 +28,11 @@ namespace Restaurante.Api
             services.AddScoped<IRefeicaoService, RefeicaoService>();
 
             services.AddScoped<IRefeicaoRepository, RefeicaoRepository>();
+            services.AddScoped<IAdicionalRepository, AdicionalRepository>();
+            services.AddScoped<IOpcaoRepository, OpcaoRepository>();
+            services.AddScoped<ITipoPratoRepository, TipoPratoRepository>();
+            services.AddScoped<ITipoRefeicaoRepository, TipoRefeicaoRepository>();
+            services.AddScoped<IPratoRepository, PratoRepository>();
 
             services.AddDbContext<RestauranteContext>(opt => opt.UseSqlServer(Configuration["ConnectionString"]));
             services.AddSwaggerGen();

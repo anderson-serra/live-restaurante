@@ -1,25 +1,21 @@
 ﻿using Restaurante.Api.Domain.Entities;
-using Restaurante.Api.Domain.Interfaces.Services;
 using Restaurante.Api.Repository.DataContext;
-using Restaurante.Api.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Restaurante.Api.Repository.Interfaces;
 using System.Threading.Tasks;
 
-namespace Restaurante.Api.Domain.Services
+namespace Restaurante.Api.Repository
 {
-    public class AdicionalService : IAdicionalService
+    public class AdicionalRepository : IAdicionalRepository
     {
         private readonly RestauranteContext restauranteContext;
 
-        public AdicionalService(RestauranteContext restauranteContext) => this.restauranteContext = restauranteContext;
-
+        public AdicionalRepository(RestauranteContext restauranteContext) => this.restauranteContext = restauranteContext;
 
         public async Task CriarAdicional(Adicional adicional)
         {
             restauranteContext.Adicionais.Add(adicional);
             await restauranteContext.SaveChangesAsync();
+
         }
     }
 }

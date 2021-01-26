@@ -16,10 +16,7 @@ namespace Restaurante.Api.Domain.Services
         public RefeicaoService(IRefeicaoRepository refeicaoRepository) => this.refeicaoRepository = refeicaoRepository;
 
 
-        public async Task CriarRefeicao(Refeicao refeicao)
-        {
-            await refeicaoRepository.CriarRefeicao(refeicao);
-        }
+        public async Task CriarRefeicao(Refeicao refeicao) => await refeicaoRepository.CriarRefeicao(refeicao);
 
         public async Task<IEnumerable<RefeicaoViewModel>> ObterRefeicoes()
         {

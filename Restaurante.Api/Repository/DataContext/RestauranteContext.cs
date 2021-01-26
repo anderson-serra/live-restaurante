@@ -16,6 +16,9 @@ namespace Restaurante.Api.Repository.DataContext
         public DbSet<Opcao> Opcoes { get; set; }
         public DbSet<TipoRefeicao> TipoRefeicoes { get; set; }
         public DbSet<TipoPrato> TipoPratos { get; set; }
+        public DbSet<PratoAdicional> PratoAdicionals { get; set; }
+        public DbSet<PratoOpcao> PratoOpcaos { get; set; }
+        public DbSet<RefeicaoPrato> RefeicaoPratos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -25,6 +28,10 @@ namespace Restaurante.Api.Repository.DataContext
             new PratoConfiguration().Configure(builder.Entity<Prato>());
             new TipoPratoConfiguration().Configure(builder.Entity<TipoPrato>());
             new TipoRefeicaoConfiguration().Configure(builder.Entity<TipoRefeicao>());
+
+            new PratoAdicionalConfiguration().Configure(builder.Entity<PratoAdicional>());
+            new PratoOpcaoConfiguration().Configure(builder.Entity<PratoOpcao>());
+            new RefeicaoPratoConfiguration().Configure(builder.Entity<RefeicaoPrato>());
         }
     }
 }

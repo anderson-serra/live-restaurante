@@ -28,6 +28,15 @@ namespace Restaurante.Api.Repository.DataContext.Configuration
                    .HasColumnType("DateTime")
                    .HasDefaultValueSql("GETDATE()")
                    .IsRequired();
+
+            builder.Property(x => x.TipoRefeicaoId)
+                   .HasColumnType("integer")
+                   .HasColumnName("TipoRefeicaoId");
+
+            builder.HasOne(x => x.TipoRefeicao)
+                   .WithMany(x => x.Refeicoes)
+                   .HasForeignKey(x => x.TipoRefeicaoId)
+                   .HasConstraintName("FK_TipoRefeicao");
         }
     }
 }

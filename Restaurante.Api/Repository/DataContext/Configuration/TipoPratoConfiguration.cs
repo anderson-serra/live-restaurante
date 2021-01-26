@@ -10,6 +10,9 @@ namespace Restaurante.Api.Repository.DataContext.Configuration
         {
             builder.ToTable("TipoPrato");
             builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id)
+                   .UseIdentityColumn()
+                   .ValueGeneratedOnAdd();
 
             builder.Property(x => x.Nome)
                    .HasColumnType("varchar(250)")

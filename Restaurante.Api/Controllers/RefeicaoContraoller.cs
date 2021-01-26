@@ -22,7 +22,7 @@ namespace Restaurante.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AdicionarRefeicoes(RefeicaoViewModel refeicaoViewModel)
+        public async Task<ActionResult> AdicionarRefeicao(RefeicaoViewModel refeicaoViewModel)
         {
             var refeicao = new Refeicao { Id = refeicaoViewModel.Id, NomeRefeicao = refeicaoViewModel.NomeRefeicao };
 

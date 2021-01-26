@@ -19,6 +19,15 @@ namespace Restaurante.Api.Repository.DataContext.Configuration
                    .HasColumnType("bit")
                    .HasDefaultValue(1)
                    .IsRequired();
+
+            builder.Property(x => x.TipoPratoId)
+                   .HasColumnType("integer")
+                   .HasColumnName("TipoPratoId");
+
+            builder.HasOne(x => x.TipoPrato)
+                   .WithMany(x => x.Pratos)
+                   .HasForeignKey(x => x.TipoPratoId)
+                   .HasConstraintName("FK_TipoPrato");
         }
     }
 }

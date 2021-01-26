@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Restaurante.Api.Domain.Entities;
-using Restaurante.Api.Domain.Interfaces.Services;
+using Restaurante.Api.Repository.Interfaces;
 using Restaurante.Api.ViewModels;
 using System.Threading.Tasks;
 
@@ -10,12 +10,12 @@ namespace Restaurante.Api.Controllers
     [Route("[controller]")]
     public class AdicionalController : ControllerBase
     {
-        private IAdicionalService adicionalService;
+        private IAdicionalRepository adicionalRepository;
 
-        public AdicionalController(IAdicionalService adicionalService) => this.adicionalService = adicionalService;
+        public AdicionalController(IAdicionalRepository adicionalRepository) => this.adicionalRepository = adicionalRepository;
 
         [HttpPost]
-        public async Task<ActionResult> AdicionarRefeicoes(AdicionalViewModel adicionalViewModel)
+        public async Task<ActionResult> AdicionarAdicional(AdicionalViewModel adicionalViewModel)
         {
             var adicional = new Adicional
             {
@@ -23,7 +23,7 @@ namespace Restaurante.Api.Controllers
                 Nome = adicionalViewModel.Nome
             };
 
-            await adicionalService.CriarAdicional(adicional);
+            await adicionalRepository.CriarAdicional(adicional);
             return Created("", adicional);
         }
     }
